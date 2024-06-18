@@ -1,109 +1,53 @@
-Mando Implements Comparable <Mando>
-	# String modelo
-	# double anchura
-	# double altura
-	# double precio
-	# boolean estaEncendido
-	-------------------------------
-	+Mando(modelo, anchura, altura)
-	+Mando(modelo, anchura, altura, precio)
-	
-	+ String getModelo()
-	+ double getAnchura()
-	+ double getAltura()
-	+ double getPrecio()
-	+ boolean isEncendido()
-
-	+ setPrecio(double precio)
-	
-	+ encender()
-	+ apagar()
-	
-	+ boolean equals (Object o)
-	+ int compareTo (Mando m)
-	+ String toString ()
+Class Mando
+	- String modelo
+	- double anchura
+	- double altura
+	- double precio
+	- boolean estaEncendido
+	------------------------
+	+ Mando(String modelo, double anchura, double altura)
+	+ Mando(String modelo, double anchura, double altura, double precio)
+	+ getModelo
+	+ getAnchura
+	+ getAltura
+	+ getPrecio
+	+ isEstaEncendido
+	+ setPrecio
+	+ void encenderMando()
+	+ void apagarMando()
 	
 	
-<<interface>> Volumen
-	+ subirVolumen()
-	+ bajarVolumen()
+Interface Volumen
+	+ void subirVolumen(int vol)
+	+ void bajarVolumen(in vol)
 	
 	
-<<interface>> Velocidad
-	+ boolean subirVelocidad()
-	+ boolean bajarVelocidad()
-
-
-clase MandoTV extends Mando implements Volumen
+Interface Velocidad
+	+ subirVelocidad(int vel)
+	+ bajarVelocidad(int vel)
+	
+	
+Class MandoTelevisor extends Mando implements Volumen
 	- int volumen
-	- int canal=1
+	- int canal
+	---------------------------
+	+ Mando(String modelo, double anchura, double altura)
+	+ Mando(String modelo, double anchura, double altura, double precio)
+	+ void subirVolumen(int vol)
+	+ void bajarVolumen(in vol)
 	
-	+ MandoTV(modelo, anchura, altura)
-	+ MandoTV(modelo, anchura, altura, precio)
 	
-	+ int getVolumen()
-	+ int getCanal()
+Class MandoMinicadena extends Mando implements Volumen
+	- int volumen
+	---------------------------
+	+ Mando(String modelo, double anchura, double altura)
+	+ Mando(String modelo, double anchura, double altura, double precio)
+	+ void subirVolumen(int vol)
+	+ void bajarVolumen(in vol)
 	
-	+ setCanal(int canal)
+Class MandoAspiradora extends Mando implements Velocidad
+	- int velocidad
+	---------------------------
+	+ Mando(String modelo, double anchura, double altura)
+	+ Mando(String modelo, double anchura, double altura, double precio)
 	
-	--a implementar--
-	+ subirVolumen()
-	+ bajarVolumen()
-	
-	--heredados--
-	+ String toString()
-	
-clase MandoMinicadena extends Mando implements Volumen
-	- volumen: int
-	
-	+ MandoMinicadena(modelo, anchura, altura)
-	+ MandoMinicadena(modelo, anchura, altura, precio)
-	
-	+ int getVolumen()
-	
-	--a implementar--
-	+ subirVolumen()
-	+ bajarVolumen()
-	
-	--heredados--
-	+ String toString()
-	
-clase MandoAspiradora extends Mando implements Velocidad
-	- velocidad: int (=0)(max 3)
-	
-	+MandoAspiradora(modelo, anchura, altura)
-	+MandoAspiradora(modelo, anchura, altura, precio)
-	
-	+getVelocidad()
-	
-	--a implementar--
-	+subirVelocidad()
-	+bajarVelocidad()
-	
-	--heredados--
-	+toString():String
-	
-clase MandoAireAcondicionado extends Mando implements Velocidad
-	enum Modo = {FRIO, CALOR}
-	
-	- velocidad: int (=0)(max 5)
-	- modo: Modo (FRIO)
-	- temperatura: int
-	
-	+MandoAireAcondicionado(modelo, anchura, altura)
-	+MandoAireAcondicionado(modelo, anchura, altura, precio)
-	
-	+getVelocidad(): int
-	+getModo(): String
-	+getTemperatura(): int
-	
-	+setTemperatura(int temp)
-	
-	+cambiarModo()
-	
-	--a implementar--
-	+subirVelocidad()
-	+bajarVelocidad()
-	
-	--heredados--
-	+toString():String
